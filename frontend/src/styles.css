@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+* {
+    font-family: "Open Sans", sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 1rem 0 1rem;
+}
+
+.container {
+    display:flex;
+    gap:2rem;
+}
+
+.clothing-container, .cart-container {
+    background-color: lightblue;
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:10px;
+    padding-bottom:20px;
+    border-radius:.5rem;
+}
+
+.clothing-items, .cart-items {
+    display: flex;
+    justify-content:center;
+    gap:20px;
+}
+
+.cart-items {
+    display:flex;
+    flex-direction: column;
+    padding-bottom:2rem;
+}
+
+.clothing-item {
+    background:white;
+    padding:10px;
+    border-radius: 10px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap:5px;
+}
+
+.clothing-item p, .clothing-item h4{
+    padding:0px;
+    margin:0;
+}
+
+.clothing-item p{
+    font-size:.9rem;
+}
+
+.clothing-item:hover {
+    outline:3px solid black;
+    cursor:pointer;
+}
+
+.button-container {
+    display:flex;
+    gap:1rem;
+}
+
+.empty-cart-btn:hover, .buy-cart-btn:hover {
+    cursor:pointer;
+}
+
+
+.removeBtn {
+    margin-left: 1rem;
+}
