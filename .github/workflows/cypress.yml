@@ -30,7 +30,9 @@ jobs:
           NODE_ENV: test
 
       - name: Start frontend server
-        run: npx http-server ./frontend/src -p 8080 &
+        run: |
+            npx serve ./frontend/src -l 8080 &
+            sleep 15
         
       - name: Check if port 8080 is being listened on
         run: sudo lsof -iTCP -sTCP:LISTEN -P
