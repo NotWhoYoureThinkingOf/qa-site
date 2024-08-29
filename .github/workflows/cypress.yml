@@ -30,13 +30,16 @@ jobs:
           NODE_ENV: test
 
       - name: Start frontend server
-        run: |
-            npx http-server ./frontend/src -p 8080 &
-            sleep 15
-            curl -I http://127.0.0.1:8080/frontend/src/index.html
+        run: npx http-server ./frontend/src -p 8080 &
         
       - name: Check if port 8080 is being listened on
         run: sudo lsof -iTCP -sTCP:LISTEN -P
+
+      - name: Check server response
+        run: curl -I http://127.0.0.1:8080/frontend/src/index.html
+
+      - name: Check file existence
+        run: ls -R ./frontend/src
 
       - name: Wait for servers to be ready
         run: sleep 20
