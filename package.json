@@ -2,7 +2,7 @@
   "name": "qa-site",
   "version": "1.0.0",
   "description": "A project to practice skills applicable to a QA Engineer",
-  "main": "index.js",
+  "main": "index.html",
   "directories": {
     "test": "tests"
   },
