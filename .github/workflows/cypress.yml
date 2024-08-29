@@ -29,14 +29,11 @@ jobs:
         env:
           NODE_ENV: test
 
-      - name: Start frontend server
-        run: |
-         npm run start:frontend &
-         sleep 10
-         ps aux | grep http-server
+      - name: Start frontend server on port 8080
+        run: npx http-server ./frontend/src -p 8080 &
         
       - name: Check frontend server
-        run: curl -I http://127.0.0.1:5500/frontend/src/index.html
+        run: curl -I http://127.0.0.1:8080/frontend/src/index.html
 
       - name: Wait for servers to be ready
         run: sleep 20
