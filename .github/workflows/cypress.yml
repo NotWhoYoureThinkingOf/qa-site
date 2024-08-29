@@ -40,8 +40,5 @@ jobs:
       - name: Wait for servers to be ready
         run: sleep 20
 
-      - name: Print server logs
-        run: cat /path/to/server/logs.log
-
       - name: Run Cypress tests
         run: npx cypress run
