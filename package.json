@@ -9,14 +9,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:backend": "node backend/src/app.js",
-    "start:frontend": "npx http-server ./frontend/src -p 5500"
+    "start:frontend": "npx http-server ./frontend/src -p 5500",
+    "start": "npx http-server ./dist"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@testing-library/cypress": "^10.0.2",
-    "cypress": "^13.13.3"
+    "cypress": "^13.13.3",
+    "http-server": "^14.1.1"
   },
   "dependencies": {
     "cors": "^2.8.5",
