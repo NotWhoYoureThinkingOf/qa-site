@@ -10,7 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:backend": "node backend/src/app.js",
     "start:frontend": "npx http-server ./frontend/src -p 5500",
-    "start": "npx http-server ./dist"
+    "start": "npx http-server ./dist",
+    "build": "parcel build frontend/src/index.html"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +24,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.19.2",
+    "parcel": "^2.12.0",
     "selenium-webdriver": "^4.24.0",
     "sqlite3": "^5.1.7"
   },
