@@ -34,8 +34,14 @@ jobs:
         env:
           NODE_ENV: test
 
+      - name: Check frontend server
+        run: curl -I http://127.0.0.1:5500/frontend/src/index.html
+
       - name: Wait for servers to be ready
-        run: sleep 10
+        run: sleep 20
+
+      - name: Print server logs
+        run: cat /path/to/server/logs.log
 
       - name: Run Cypress tests
         run: npx cypress run
