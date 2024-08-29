@@ -1,50 +1,26 @@
-name: Run Cypress Tests
+name: CI
 
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
-  cypress-run:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
+      - uses: actions/checkout@v3
 
       - name: Install dependencies
         run: npm install
 
-      - name: Start backend server
-        run: npm run start:backend &
-        env:
-          NODE_ENV: test
-
-      - name: Start frontend server
+      - name: Start http-server
         run: |
-            npx serve ./frontend/src -l 8080 &
-            sleep 15
-        
-      - name: Check if port 8080 is being listened on
-        run: sudo lsof -iTCP -sTCP:LISTEN -P
+          npx http-server ./frontend/src -p 8080 &
+          sleep 15
 
       - name: Check server response
         run: curl -I http://127.0.0.1:8080/frontend/src/index.html
 
-      - name: Check file existence
-        run: ls -R ./frontend/src
-
-      - name: Wait for servers to be ready
-        run: sleep 20
-
       - name: Run Cypress tests
-        run: npx cypress run
+        run: npx cypress run --browser electron
