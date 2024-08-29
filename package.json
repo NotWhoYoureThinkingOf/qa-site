@@ -9,8 +9,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:backend": "node backend/src/app.js",
     "start:frontend": "npx http-server ./frontend/src -p 5500",
-    "start": "npx http-server ./dist",
-    "build": "parcel build frontend/src/index.html"
+    "start": "parcel serve frontend/src/index.html",
+    "build": "parcel build frontend/src/index.html",
+    "start-server": "http-server ./dist"
   },
   "keywords": [],
   "author": "",

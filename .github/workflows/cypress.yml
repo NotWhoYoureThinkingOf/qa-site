@@ -21,12 +21,14 @@ jobs:
         run: npm run build  # Ensure you have a build script in your package.json
 
       - name: Start server
-        run: npm run start-server &  # Run your server in the background
+        run: npm run start-server &
+        env:
+          PORT: 8080
 
       - name: Wait for server to start
         run: sleep 10  # Adjust sleep duration based on how long your server takes to start
 
-      - name: Run Cypress tests
+      - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          start: npm start
+          start: npm run start-server
