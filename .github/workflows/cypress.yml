@@ -24,22 +24,18 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Start the backend server
       - name: Start backend server
         run: npm run start:backend &
         env:
           NODE_ENV: test
 
-      # Start the frontend server
       - name: Start frontend server
         run: npm run start:frontend &
         env:
           NODE_ENV: test
 
-      # Wait for the servers to start
       - name: Wait for servers to be ready
         run: sleep 10
 
-      # Run Cypress tests
       - name: Run Cypress tests
         run: npx cypress run
