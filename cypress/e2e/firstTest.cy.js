@@ -1,6 +1,6 @@
 context('My First Test', () => {
     beforeEach(() => {
-        cy.visit('http://127.0.0.1:8080/frontend/src/index.html')
+        cy.visit('/frontend/src/index.html');
     })
 
     it ('has an h1 on the page', () => {

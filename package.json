@@ -9,7 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:backend": "node backend/src/app.js",
-    "start:frontend": "npx http-server ./frontend/src -p 5500"
+    "start:frontend": "npx http-server ./frontend/src -p 8080"
   },
   "keywords": [],
   "author": "",
