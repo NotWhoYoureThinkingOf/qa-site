@@ -4,8 +4,7 @@ on: push
 
 jobs:
   cypress-run:
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -18,20 +17,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build frontend
-        run: npm run build # Building the frontend
-
-      - name: Start server
-        run: npm run start-server &
-        env:
-          PORT: 5500
-
-      - name: Wait for server to start
-        run: sleep 15 # Wait time adjusted to ensure the server is up
-
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          start: npm run start-server
-          wait-on: "http://localhost:5500"
+          wait-on: "https://notwhoyourethinkingof.github.io/qa-site"
           wait-on-timeout: 60
