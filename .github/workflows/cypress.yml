@@ -1,10 +1,11 @@
-name: Basic Cypress Test
+name: Cypress Tests
 
-on: [push]
+on: push
 
 jobs:
-  cypress-test:
+  cypress-run:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -12,13 +13,21 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "18" # Match this with your Node.js version
+          node-version: "18"
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Cypress
-        run: npm install cypress
+      - name: Build frontend
+        run: npm run build # Building the frontend
 
-      - name: Run Cypress test
+      - name: Start server
+        run: npm run start-server &
+        env:
+          PORT: 5500
+
+      - name: Wait for server to start
+        run: sleep 15 # Wait time adjusted to ensure the server is up
+
+      - name: Cypress run
         run: npx cypress run --spec "cypress/e2e/simple_test.cy.js"
