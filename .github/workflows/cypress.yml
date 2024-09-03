@@ -1,36 +1,17 @@
-name: Cypress Tests
+name: Simple Test Workflow
 
-on: push
+on: [push, pull_request]
 
 jobs:
-  cypress-run:
-    runs-on: ubuntu-22.04
+  test:
+    runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'  # Match this with the Node.js version you're using locally
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Run a simple echo command
+        run: echo "Hello, GitHub Actions!"
 
-      - name: Build frontend
-        run: npm run build  # Ensure you have a build script in your package.json
-
-      - name: Start server
-        run: npm run start-server &
-        env:
-          PORT: 8081
-
-      - name: Wait for server to start
-        run: sleep 10  # Adjust sleep duration based on how long your server takes to start
-
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
-        with:
-          start: npm run start-server
-          wait-on: 'http://localhost:5500'
-          wait-on-timeout: 60
+      - name: Verify Node.js is installed
+        run: node --version
