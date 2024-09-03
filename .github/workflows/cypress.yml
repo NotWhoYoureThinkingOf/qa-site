@@ -30,4 +30,4 @@ jobs:
         run: sleep 15 # Wait time adjusted to ensure the server is up
 
       - name: Cypress run
-        run: npx cypress run --spec "cypress/e2e/simple_test.cy.js"
+        run: npx cypress run --spec "cypress/e2e/firstTest.cy.js"
