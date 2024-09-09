@@ -21,7 +21,7 @@ jobs:
         run: sleep 60 # Wait for 60 seconds to ensure deployment
 
       - name: Run Cypress tests
-        run: npx cypress run --env baseUrl=qa-site-nine.vercel.app
+        run: npx cypress run --env --debug baseUrl=qa-site-nine.vercel.app
 
       # - name: Cypress run
       #   uses: cypress-io/github-action@v6
