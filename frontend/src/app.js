@@ -66,7 +66,7 @@ const addToCart = (item) => {
     updateCart()
 }
 
-const clearCart = () => {
+window.clearCart = function() {
     cart = [];
 
     const cartContainer = document.getElementById('cart-items');
@@ -75,7 +75,7 @@ const clearCart = () => {
     updateCart()
 }
 
-const buyCart = () => {
+window.buyCart = function() {
     cart = [];
 
     const cartContainer = document.getElementById('cart-items');
