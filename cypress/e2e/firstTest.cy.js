@@ -1,6 +1,6 @@
 context('My First Test', () => {
     beforeEach(() => {
-        cy.visit('https://qa-site-nine.vercel.app/');
+        cy.visit('https://qa-site-nine.vercel.app/', { timeout: 10000 });
     })
 
     it ('has an h1 on the page', () => {
