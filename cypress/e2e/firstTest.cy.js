@@ -21,7 +21,6 @@ context('My First Test', () => {
     })
 
     it ('renders each clothing item with the expected elements', () =>{
-        cy.wait(5000)
         cy.get('.clothing-item').each(($el) => {
             cy.wrap($el).find('img').should('be.visible')
             cy.wrap($el).find('h4').should('be.visible')
