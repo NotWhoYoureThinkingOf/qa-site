@@ -12,7 +12,7 @@ context('My First Test', () => {
     })
 
     it ('renders the products in clothing items section', () => {
-        cy.get('.clothing-items', { timeout: 10000 }).within(() => {
+        cy.get('#clothing-items', { timeout: 10000 }).within(() => {
             cy.get('div').each(($el, index, $list) => {
                 cy.wrap($el).should('be.visible')
                 cy.wrap($el).should('have.class', 'clothing-item')
