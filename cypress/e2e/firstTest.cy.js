@@ -12,8 +12,8 @@ context('My First Test', () => {
     })
 
     it ('renders the products in clothing items section', () => {
+        cy.get('#clothing-items').should('be.visible')
         cy.get('#clothing-items', { timeout: 10000 }).within(() => {
-            cy.get('.clothing-items').length
             cy.log()
             cy.get('div').each(($el, index, $list) => {
                 cy.wrap($el).should('be.visible')
@@ -24,7 +24,6 @@ context('My First Test', () => {
 
     it ('renders each clothing item with the expected elements', () =>{
         cy.get('.clothing-item').each(($el) => {
-            cy.log()
             cy.wrap($el).find('img').should('be.visible')
             cy.wrap($el).find('h4').should('be.visible')
             cy.wrap($el).find('p').should('be.visible')

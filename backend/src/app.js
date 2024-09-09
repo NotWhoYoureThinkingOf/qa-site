@@ -5,7 +5,12 @@ const port = process.env.PORT || 3000;
 
 const db = require('./config/db')
 
-app.use(cors());
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed request headers
+    credentials: true
+}));
 app.use(express.json())
 
 // Route to get all products
