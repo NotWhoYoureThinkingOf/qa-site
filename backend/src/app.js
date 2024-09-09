@@ -1,19 +1,22 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const port = 3000;
-const productModel = require('./models/product')
+const port = process.env.PORT || 3000;
 
-const {getAllProducts} = require('./models/product');
+const db = require('./config/db')
 
 app.use(cors());
 app.use(express.json())
 
 // Route to get all products
-app.get('/api/products', (req, res) => {
-    getAllProducts((products) => {
-        res.json(products); // Send products as JSON response
-    });
+app.get('/api/products', async (req, res) => {
+    try {
+        const result = await db.query ('SELECT id, name, CAST(price AS DECIMAL), quantity, image_url FROM Products');
+        res.json(result.rows); // send the products as json
+    } catch (error) {
+        console.error('Error getting products: ', error)
+        res.status(500).json({error: "Internal server error"})
+    }    
 })
 
 app.listen(port, () => {

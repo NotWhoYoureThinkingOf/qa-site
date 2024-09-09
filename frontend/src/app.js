@@ -40,7 +40,7 @@ function displayProducts(products) {
         productElement.innerHTML = `
             <img src="${product.image_url}" alt="${product.name}" style="width: 50px; height: 50px">
             <h4>${product.name}</h4>
-            <p>Price: $${product.price.toFixed(2)}</p>
+            <p>Price: $${product.price}</p>
         `;
 
         productElement.addEventListener('click', () => {
