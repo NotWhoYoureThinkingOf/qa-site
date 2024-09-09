@@ -46,17 +46,17 @@ context('My First Test', () => {
     })
 
     it ('gets response from database', function() {
-        cy.request('https://qa-site-nine.vercel.app/api/products').its('status').should('eq', 200)
+        cy.request('http://localhost:3000/api/products').its('status').should('eq', 200)
     })
 
     it ('gets a body in the response', () => {
-        cy.request('https://qa-site-nine.vercel.app/api/products').its('body').then((body) => {
+        cy.request('http://localhost:3000/api/products').its('body').then((body) => {
             cy.log("Response:", body)
         })
     })
 
     it ('gets all the clothing products', () => {
-        cy.request('https://qa-site-nine.vercel.app/api/products').its('body').then((body) => {
+        cy.request('http://localhost:3000/api/products').its('body').then((body) => {
             expect(body.length).to.have.greaterThan(0);
             expect(body.length).eq(5);
         })
