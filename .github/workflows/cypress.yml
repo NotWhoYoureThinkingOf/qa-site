@@ -3,7 +3,7 @@ name: Cypress Tests
 on: push
 
 env:
-  ACTIONS_STEP_DEBUG: true
+  CYPRESS_TIMEOUT: 20000
 
 jobs:
   cypress-run:
