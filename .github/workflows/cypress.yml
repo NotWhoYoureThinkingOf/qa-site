@@ -15,10 +15,13 @@ jobs:
           node-version: "18"
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
-        with:
-          wait-on: "https://notwhoyourethinkingof.github.io/qa-site"
-          wait-on-timeout: 60
+      - name: Run Cypress tests
+        run: npx cypress run --env baseUrl=qa-site-nine.vercel.app
+
+      # - name: Cypress run
+      #   uses: cypress-io/github-action@v6
+      #   with:
+      #     wait-on: "https://notwhoyourethinkingof.github.io/qa-site"
+      #     wait-on-timeout: 60
